@@ -2,13 +2,29 @@ import React from "react";
 import { StyleSheet, Text, View, Image } from "react-native";
 import { observer } from "mobx-react-lite";
 import { baseUrl } from "../Stores/instance";
+import { HStack, Pressable } from "native-base";
 
-const ShopItem = ({ shop }) => {
+const ShopItem = ({ shop, navigation }) => {
   return (
-    <View>
-      <Image style={styles.shopImage} source={{ uri: baseUrl + shop.image }} />
-      <Text>{shop.name}</Text>
-    </View>
+    <Pressable
+      onPress={() => {
+        navigation.navigate("ShopDetail", { shop: shop });
+        console.log("clicked");
+      }}
+    >
+      <HStack
+        
+        w="100%"
+        alignItems="center"
+        space="3"
+      >
+        <Image
+          style={styles.shopImage}
+          source={{ uri: baseUrl + shop.image }}
+        />
+        <Text>{shop.name}</Text>
+      </HStack>
+    </Pressable>
   );
 };
 

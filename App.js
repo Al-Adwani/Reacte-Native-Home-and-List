@@ -5,14 +5,15 @@ import Home from "./Components/Home";
 import { NativeBaseProvider } from "native-base";
 import ShopList from "./Components/ShopList";
 import ShopDetail from "./Components/ShopDetail";
+import { NavigationContainer } from "@react-navigation/native";
+import RootNavigator from "./Components/Navigation";
 
 export default function App() {
   return (
     <NativeBaseProvider>
-      <View style={styles.container}>
-        {/* <ShopList /> */}
-        <ShopDetail />
-      </View>
+      <NavigationContainer>
+        <RootNavigator />
+      </NavigationContainer>
     </NativeBaseProvider>
   );
 }

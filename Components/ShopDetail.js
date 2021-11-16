@@ -4,11 +4,11 @@ import shopStore from "../Stores/shopStore";
 import { baseUrl } from "../Stores/instance";
 import { Spinner } from "native-base";
 import ProductList from "./ProductList";
-const ShopDetail = () => {
+const ShopDetail = ({ route, navigation }) => {
   if (shopStore.isLoading) return <Spinner />;
-  const shop = shopStore.shops[0];
+  /* const shop = shopStore.shops[0]; */
+  const { shop } = route.params;
 
-  console.log(shop.image);
   return (
     <View style={styles.shopDetailWrapper}>
       <Image

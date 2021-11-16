@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Button, Center } from "native-base";
-export const Home = () => {
+/* export const Home = ({ navigation }) => {
   return (
     <>
       <Box
@@ -17,17 +17,14 @@ export const Home = () => {
       </Box>
     </>
   );
-};
+}; */
 
-export default () => {
+export default function Home({ navigation }) {
   return (
-    
-      <Center flex={1} px="3">
-        <Home />
-        <Button margin="10%" onPress={() => console.log("hello world")}>
-          Primary
-        </Button>
-      </Center>
-    
+    <Center flex={1} px="3">
+      <Button margin="10%" onPress={() => navigation.navigate("ShopList")}>
+        Click Here
+      </Button>
+    </Center>
   );
-};
+}
