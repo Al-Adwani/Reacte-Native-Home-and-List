@@ -9,15 +9,9 @@ const ShopItem = ({ shop, navigation }) => {
     <Pressable
       onPress={() => {
         navigation.navigate("ShopDetail", { shop: shop });
-        console.log("clicked");
       }}
     >
-      <HStack
-        
-        w="100%"
-        alignItems="center"
-        space="3"
-      >
+      <HStack w="100%" alignItems="center" space="3">
         <Image
           style={styles.shopImage}
           source={{ uri: baseUrl + shop.image }}

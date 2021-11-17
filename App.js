@@ -7,7 +7,7 @@ import ShopList from "./Components/ShopList";
 import ShopDetail from "./Components/ShopDetail";
 import { NavigationContainer } from "@react-navigation/native";
 import RootNavigator from "./Components/Navigation";
-
+import CartList from "./Components/CartList";
 export default function App() {
   return (
     <NativeBaseProvider>
