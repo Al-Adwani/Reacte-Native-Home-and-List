@@ -1,6 +1,5 @@
 import { makeAutoObservable } from "mobx";
 class CartStore {
-  isLoading = true;
   items = [
     {
       product: {
@@ -23,12 +22,33 @@ class CartStore {
       quantity: 3,
     },
   ];
-  
+
   constructor() {
     makeAutoObservable(this);
     // this will turn our class into a mobx store and all components can observe the changes that happen in the store
   }
-  isLoading = false;
+
+  addItemToCart = (product, quantity) => {
+    const foundItem = this.items.find(
+      (item) => item.product._id === product._id
+    );
+    if (foundItem) {
+      foundItem.quantity = quantity;
+      console.log(foundItem);
+    } else {
+      const newItem = {
+        product: product,
+        quantity: quantity,
+      };
+      this.items.push(newItem);
+    }
+  };
+  get totalQuantity() {
+    let total = 0;
+    this.items.forEach((item) => (total = total + item.quantity));
+
+    return total;
+  }
 }
 const cartStore = new CartStore();
 
