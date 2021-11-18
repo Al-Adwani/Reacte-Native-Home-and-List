@@ -38,7 +38,15 @@ export default function RootNavigator() {
           };
         }}
       />
-      <Screen name="CartList" component={CartList} />
+      <Screen
+        name="CartList"
+        component={CartList}
+        options={{
+          headerStyle: {
+            backgroundColor: "crimson",
+          },
+        }}
+      />
     </Navigator>
   );
 }
