@@ -1,12 +1,28 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View, Alert } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
 import { useNavigation } from "@react-navigation/core";
 import { Button } from "native-base";
 import { VStack, Badge } from "native-base";
 import cartStore from "../../Stores/cartStore";
 import { observer } from "mobx-react-lite";
+import userAuthStore from "../../Stores/authStore";
 const CartButton = ({ navigation }) => {
+  const handleSubmit = () => {
+    if (userAuthStore.user) {
+      navigation.navigate("CartList");
+    } else {
+      Alert.alert(
+        "Signin",
+        "You need to Signin to access your cart",
+        [
+          { text: "Cancel", onPress: () => alert("Canceled"), style: "cancel" },
+          { text: "Signin", onPress: () => navigation.navigate("Signin") },
+        ],
+        { cancelable: false }
+      );
+    }
+  };
   return (
     <View>
       <VStack>
@@ -29,7 +45,7 @@ const CartButton = ({ navigation }) => {
           color="#900"
           style={styles.cartImage}
           onPress={() => {
-            navigation.navigate("CartList");
+            handleSubmit();
           }}
         />
       </VStack>

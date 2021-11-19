@@ -6,6 +6,8 @@ import ShopList from "../ShopList";
 import ShopDetail from "../ShopDetail";
 import CartList from "../CartList";
 import CartButton from "../Buttons/CartButton";
+import Signin from "../Authentication/Signin";
+import Signup from "../Authentication/Signup";
 export default function RootNavigator() {
   const { Navigator, Screen } = createStackNavigator();
   /* const RootNavigator = () => {}; */
@@ -47,6 +49,8 @@ export default function RootNavigator() {
           },
         }}
       />
+      <Screen name="Signin" component={Signin} />
+      <Screen name="Signup" component={Signup} />
     </Navigator>
   );
 }
